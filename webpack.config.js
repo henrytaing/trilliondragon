@@ -3,19 +3,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // CommonJS syntax
 module.exports = {
+    mode: process.env.NODE_ENV,
     entry: './src/index.js',
     // Where we want compiled code to go
     output: {
-        path: path.resolve(__dirname, '/dist'),
-        filename: 'bundle.js',
-        publicPath: '/'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
     },
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                use: {
-                    loader: 'babel-loader'
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
                 },
                 exclude: /node_modules/,
             },
@@ -34,5 +35,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         })
-    ]
+    ],
+    devServer: {
+        publicPath: '/dist/',
+        contentBase: path.join(__dirname, '/src'),
+        watchContentBase: true,
+        proxy: { '/': 'http://localhost:3000' },
+      },
 }
