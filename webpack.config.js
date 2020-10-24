@@ -5,11 +5,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './src/index.js',
     // Where we want compiled code to go
-    // output: {
-    //     path: path.resolve(__dirname, '/dist'),
-    //     filename: 'bundle.js',
-    //     publicPath: '/'
-    // },
+    output: {
+        path: path.resolve(__dirname, '/dist'),
+        filename: 'bundle.js',
+        publicPath: '/'
+    },
     module: {
         rules: [
             {
