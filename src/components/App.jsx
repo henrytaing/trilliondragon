@@ -13,7 +13,7 @@ function App () {
             Count: {count}
             {array.map((element, index) => 
             <section className='card'>
-                Hello world! {element}
+                App 1! {element}
                 <button onClick={test}>+</button>
             </section>)}
         </>
