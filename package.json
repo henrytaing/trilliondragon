@@ -22,12 +22,9 @@
     "concurrently": "^5.3.0",
     "cors": "^2.8.5",
     "css-loader": "^5.0.0",
-<<<<<<< HEAD
     "express": "^4.17.1",
     "heroku-cli": "^7.0.9",
-=======
     "dotenv": "^8.2.0",
->>>>>>> 793ceaf7dac921e58b55d985e142e3d7d45d3d3b
     "html-webpack-plugin": "^4.5.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.2.0",
