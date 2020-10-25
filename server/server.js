@@ -6,16 +6,21 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('src'));
+app.use(express.static('dist'));
+
 app.use(cors());
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '..', 'dist', 'index.html'));
+    res.send('hello');
 })
 
 app.get('/test', (req, res) => {
     res.send('You pass the test!');
+})
+
+app.get('/test2', (req, res) => {
+    res.send('You pass the second test!');
 })
 
 app.listen(PORT, () => {

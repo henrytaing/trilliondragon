@@ -1,28 +1,23 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// CommonJS syntax
 module.exports = {
     mode: process.env.NODE_ENV,
     entry: './src/index.js',
-    // Where we want compiled code to go
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/dist/'
     },
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env', '@babel/preset-react'],
-                },
+                test: /.(js|jsx)$/,
+                use: 'babel-loader',
                 exclude: /node_modules/,
             },
             {
-                test: /\.css$/,
-                // Order matters
+                test: /.css$/,
                 use: ['style-loader', 'css-loader'],
                 exclude: /node_modules/
             }
@@ -38,7 +33,7 @@ module.exports = {
     ],
     devServer: {
         publicPath: '/dist/',
-        contentBase: path.join(__dirname, '/src'),
+        contentBase: path.resolve(__dirname, 'src'),
         watchContentBase: true,
         proxy: { '/': 'http://localhost:3000' },
       },
