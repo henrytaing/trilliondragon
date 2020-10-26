@@ -16,10 +16,28 @@ body {
   margin: 5px;
 }
 
-button {
+/* button {
   font-size: 24px;
   font-weight: bold;
   color: green;
   border: 8px solid green;
   background-color: greenyellow;
+} */
+
+.group {
+  min-height: 100px;
+  width: 200px;
+  border: 1px solid black;
+  margin: 3px;
+  background-color: gray;
+}
+
+.item {
+  background-color: darkgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
 }
