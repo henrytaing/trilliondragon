@@ -36,6 +36,7 @@ body {
   background-color: darkgray;
   display: flex;
   justify-content: space-between;
+  margin: 3px;
 }
 
 .container {
