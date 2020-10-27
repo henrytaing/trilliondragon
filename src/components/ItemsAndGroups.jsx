@@ -11,11 +11,18 @@ function ItemsAndGroups () {
     }
     const addItem = () => {
         const newState = groups.slice();
-        // newState.push([]);
+        // newState.push([]); -> Example application always adds items in new group
+            // Seems more appropriate to add items to existing groups or just make initial group if empty
+        if(!newState[newState.length - 1]) newState.push([]);
         newState[newState.length - 1].push(itemNum);
         setGroup(newState);
         const newItemNum = itemNum + 1;
         setItemNum(newItemNum);
+    }
+    const deleteItem = (itemId, groupId) => {
+        const newState = groups.slice();
+        newState[groupId].splice(newState[groupId].indexOf(itemId),1);
+        setGroup(newState);
     }
     return (
         <>
@@ -26,9 +33,9 @@ function ItemsAndGroups () {
                 // iterate over the items in each group
                 const items = group.map((item, itemIndex) => {
                     return (
-                        <div className="item">
+                        <div className="item" id={item}>
                             item {item}
-                            <button>delete</button>
+                            <button onClick={() => deleteItem(item, groupIndex)}>delete</button>
                         </div>
                     )
                 })
