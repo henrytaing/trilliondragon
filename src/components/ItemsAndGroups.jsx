@@ -24,6 +24,19 @@ function ItemsAndGroups () {
         newState[groupId].splice(newState[groupId].indexOf(itemId),1);
         setGroup(newState);
     }
+    // Drag and Drop Functions
+    const drag = (event) => {
+        console.log('dragging');
+        event.dataTransfer.setData('section', event.target.id);
+    }
+    const allowDrop = (event) => {
+        event.preventDefault();
+    }
+    const drop = (event) => {
+        event.preventDefault();
+        const item = event.dataTransfer.getData('section');
+        event.target.appendChild(document.getElementById(item))
+    }
     return (
         <>
             <button onClick={addGroup}>Add new group</button>
@@ -33,14 +46,14 @@ function ItemsAndGroups () {
                 // iterate over the items in each group
                 const items = group.map((item, itemIndex) => {
                     return (
-                        <div className="item" id={item}>
+                        <div className="item" id={item} draggable="true" onDragStart={(e) => drag(e)}>
                             item {item}
                             <button onClick={() => deleteItem(item, groupIndex)}>delete</button>
                         </div>
                     )
                 })
                 return (
-                    <div className="group" id={groupIndex}>
+                    <div className="group" id={groupIndex} onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
                         {items}
                     </div>
                 )
