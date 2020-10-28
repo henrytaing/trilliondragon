@@ -27,14 +27,14 @@ function ItemsAndGroups () {
     // Drag and Drop Functions
     const drag = (event) => {
         console.log('dragging');
-        event.dataTransfer.setData('section', event.target.id);
+        event.dataTransfer.setData('div', event.target.id);
     }
     const allowDrop = (event) => {
         event.preventDefault();
     }
     const drop = (event) => {
         event.preventDefault();
-        const item = event.dataTransfer.getData('section');
+        const item = event.dataTransfer.getData('div');
         event.target.appendChild(document.getElementById(item))
     }
     return (
@@ -46,14 +46,14 @@ function ItemsAndGroups () {
                 // iterate over the items in each group
                 const items = group.map((item, itemIndex) => {
                     return (
-                        <div className="item" id={item} draggable="true" onDragStart={(e) => drag(e)}>
+                        <div className="item" id={`item${item}`} draggable="true" onDragStart={(e) => drag(e)}>
                             item {item}
                             <button onClick={() => deleteItem(item, groupIndex)}>delete</button>
                         </div>
                     )
                 })
                 return (
-                    <div className="group" id={groupIndex} onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
+                    <div className="group" id={`group${groupIndex}`} onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
                         {items}
                     </div>
                 )
