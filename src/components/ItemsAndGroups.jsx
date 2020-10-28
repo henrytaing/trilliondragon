@@ -25,15 +25,23 @@ function ItemsAndGroups () {
         setGroup(newState);
     }
     // Drag and Drop Functions
-    const drag = (event) => {
-        console.log('dragging');
+    let oldGroup;
+    let itemIndex;
+    const drag = (event, oldGroupIndex) => {
+        // oldGroupIndex is the original group that the item was in
+        oldGroup = oldGroupIndex;
+        // itemIndex is the item # of the item
+        itemIndex = event.target.id;
         event.dataTransfer.setData('div', event.target.id);
     }
     const allowDrop = (event) => {
         event.preventDefault();
     }
-    const drop = (event) => {
+    const drop = (event, newGroupIndex) => {
         event.preventDefault();
+        // newGroupIndex is the new location of the item
+        // oldGroup is the original location of the item
+        // Update state by removing the item from oldgroup and pushing to newgroup
         const item = event.dataTransfer.getData('div');
         event.target.appendChild(document.getElementById(item))
     }
@@ -46,14 +54,14 @@ function ItemsAndGroups () {
                 // iterate over the items in each group
                 const items = group.map((item, itemIndex) => {
                     return (
-                        <div className="item" id={`item${item}`} draggable="true" onDragStart={(e) => drag(e)}>
+                        <div className="item" id={`item${item}`} draggable="true" onDragStart={(e) => drag(e, groupIndex)}>
                             item {item}
                             <button onClick={() => deleteItem(item, groupIndex)}>delete</button>
                         </div>
                     )
                 })
                 return (
-                    <div className="group" id={`group${groupIndex}`} onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
+                    <div className="group" id={`group${groupIndex}`} onDrop={(e) => drop(e, groupIndex)} onDragOver={(e) => allowDrop(e)}>
                         {items}
                     </div>
                 )
