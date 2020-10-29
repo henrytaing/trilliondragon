@@ -11,8 +11,6 @@ function ItemsAndGroups () {
     }
     const addItem = () => {
         const newState = groups.slice();
-        // newState.push([]); -> Example application always adds items in new group
-            // Seems more appropriate to add items to existing groups or just make initial group if empty
         if(!newState[newState.length - 1]) newState.push([]);
         newState[newState.length - 1].push(itemNum);
         setGroup(newState);
@@ -26,12 +24,12 @@ function ItemsAndGroups () {
     }
     // Drag and Drop Functions
     let oldGroup;
-    let itemIndex;
-    const drag = (event, oldGroupIndex) => {
-        // oldGroupIndex is the original group that the item was in
+    let itemNumber;
+    const drag = (event, oldGroupIndex, itemIndex) => {
+        // oldGroupIndex is assigned the original group that the item was in {number}
         oldGroup = oldGroupIndex;
-        // itemIndex is the item # of the item
-        itemIndex = event.target.id;
+        // itemIndex is assigned the item number {number}
+        itemNumber = itemIndex;
         event.dataTransfer.setData('div', event.target.id);
     }
     const allowDrop = (event) => {
@@ -39,11 +37,11 @@ function ItemsAndGroups () {
     }
     const drop = (event, newGroupIndex) => {
         event.preventDefault();
-        // newGroupIndex is the new location of the item
-        // oldGroup is the original location of the item
-        // Update state by removing the item from oldgroup and pushing to newgroup
-        const item = event.dataTransfer.getData('div');
-        event.target.appendChild(document.getElementById(item))
+        const newState = groups.slice();
+        // uses 'oldGroup' and 'itemNumber' which were assigned in drag function
+        newState[oldGroup].splice(newState[oldGroup].indexOf(itemNumber), 1);
+        newState[newGroupIndex].push(itemNumber);
+        setGroup(newState);
     }
     return (
         <>
@@ -54,7 +52,7 @@ function ItemsAndGroups () {
                 // iterate over the items in each group
                 const items = group.map((item, itemIndex) => {
                     return (
-                        <div className="item" id={`item${item}`} draggable="true" onDragStart={(e) => drag(e, groupIndex)}>
+                        <div className="item" id={`item${item}`} draggable="true" onDragStart={(e) => drag(e, groupIndex, item)}>
                             item {item}
                             <button onClick={() => deleteItem(item, groupIndex)}>delete</button>
                         </div>
