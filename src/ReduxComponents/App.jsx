@@ -6,10 +6,10 @@ import {store} from './store'
 
 function App () {
     const incrementCount = () => {
-        store.dispatch(increment());
+        store.dispatch(counterSlice.actions.increment());
     }
     const decrementCount = () => {
-        store.dispatch(decrement());
+        store.dispatch(counterSlice.actions.decrement());
     }
     return (
         <>
