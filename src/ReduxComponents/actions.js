@@ -1,4 +1,16 @@
-import {createAction} from '@reduxjs/toolkit';
+// import {createAction} from '@reduxjs/toolkit';
 
-export const increment = createAction('INCREMENT');
-export const decrement = createAction('DECREMENT');
+// Regular Redux
+// export function increment() {
+//      return { type: INCREMENT}
+// }
+// export function decrement() {
+//      return { type: DECREMENT}
+// };
+
+// Redux Toolkit
+// export const increment = createAction('INCREMENT');
+// export const decrement = createAction('DECREMENT');
+
+// Redux Toolkit with slice
+// Isn't necessary to create actions separately with slice

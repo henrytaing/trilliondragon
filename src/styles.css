@@ -42,3 +42,7 @@ body {
 .container {
   display: flex;
 }
+
+span {
+  display: block;
+}
