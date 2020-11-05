@@ -12,6 +12,6 @@
 // });
 
 // Redux Toolkit with slice
-// export const store = configureStore({
+// export const store2 = configureStore({
 //     reducer: counterSlice.reducer
 // })

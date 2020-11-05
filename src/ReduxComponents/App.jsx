@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import '../styles.css';
-// import {increment, decrement} from './actions'
-import {counterSlice} from './counterSlice'
-import {store} from './store'
+import {counterSlice, increment, decrement, store} from './counterSlice'
+// import {store} from './store'
 
 function App () {
     const incrementCount = () => {
-        store.dispatch(counterSlice.actions.increment());
+        store.dispatch(increment());
     }
     const decrementCount = () => {
-        store.dispatch(counterSlice.actions.decrement());
+        store.dispatch(decrement());
     }
     return (
         <>
