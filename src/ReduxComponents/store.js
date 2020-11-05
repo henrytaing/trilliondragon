@@ -1,5 +1,5 @@
-import {configureStore} from '@reduxjs/toolkit';
-import { counterSlice } from './counterSlice';
+// import {configureStore} from '@reduxjs/toolkit';
+// import { counterSlice } from './counterSlice';
 // import {counter} from './reducers';
 
 // Regular Redux
@@ -12,6 +12,6 @@ import { counterSlice } from './counterSlice';
 // });
 
 // Redux Toolkit with slice
-export const store = configureStore({
-    reducer: counterSlice.reducer
-})
+// export const store = configureStore({
+//     reducer: counterSlice.reducer
+// })
