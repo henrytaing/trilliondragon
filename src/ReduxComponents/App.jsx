@@ -1,22 +1,29 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
+import {increment, decrement} from './counterSlice'
 import '../styles.css';
-import {counterSlice, increment, decrement, store} from './counterSlice'
 // import {store} from './store'
 
-function App () {
-    const incrementCount = () => {
-        store.dispatch(increment());
-    }
-    const decrementCount = () => {
-        store.dispatch(decrement());
-    }
+function App ({onIncrement, onDecrement, counter}) {
     return (
         <>
-            <span>Character count: </span> 
-            <button onClick={incrementCount}>Increment</button>
-            <button onClick={decrementCount}>Decrement</button>
+            <span>Character count: {counter}</span> 
+            <button onClick={onIncrement}>Increment</button>
+            <button onClick={onDecrement}>Decrement</button>
         </>
     )
 }
 
-export default App;
+function mapStateToProps(state) {
+    return { counter: state }
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+    return {
+        onIncrement: () => { dispatch(increment())},
+        onDecrement: () => { dispatch(decrement())}
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
