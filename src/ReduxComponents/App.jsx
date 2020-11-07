@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {increment, decrement} from './counterSlice'
 import '../styles.css';
-// import {store} from './store'
 
 function App ({onIncrement, onDecrement, counter}) {
     return (

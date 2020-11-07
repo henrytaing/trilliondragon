@@ -18,6 +18,3 @@
 //     [increment.type]: state => state + 1,
 //     [decrement.type]: state => state - 1
 // })
-
-// Redux Toolkit with slice
-// Isn't necessary to create reducers separately with slice
