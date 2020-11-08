@@ -3,19 +3,31 @@ import '../styles.css';
 
 function Calculator () {
     const [count, setCount] = useState(0);
-    const array = [1,2,3,4,5];
-    const test = () => {
-        const newCount = count + 1;
-        setCount(newCount);
-    };
+    const buttons = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+'
+, '0', '.', '='];
+    const createButton = (contents) => {
+        if(contents === '0') return (
+            <button className="calculator-button-0">{contents}</button>
+        )
+        return (
+            <button className="calculator-button">{contents}</button>
+        )
+    }
     return (
         <>
-            Count: {count}
-            {array.map((element, index) => 
-            <section className='card'>
-                Calculator! {element}
-                <button onClick={test}>+</button>
-            </section>)}
+            <div className="container">
+                <span id="title">Calculator</span>
+                <div class="calculator-container">
+                    <div class="numbers-display">
+                        
+                    </div>
+                    <div class="buttons-container">
+                        {buttons.map(button => {
+                            return createButton(button);
+                        })}
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

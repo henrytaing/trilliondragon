@@ -1,7 +1,7 @@
-body {
+/* body {
   background-color: white;
-}
-
+} */
+/* 
 .card {
   border: 1px solid black;
   width: 200px;
@@ -14,7 +14,7 @@ body {
   color: white;
   font-size: 24px;
   margin: 5px;
-}
+} */
 
 /* button {
   font-size: 24px;
@@ -24,7 +24,7 @@ body {
   background-color: greenyellow;
 } */
 
-.group {
+/* .group {
   min-height: 100px;
   width: 200px;
   border: 1px solid black;
@@ -37,12 +37,60 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 3px;
-}
+} */
 
 .container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
+/* 
 span {
   display: block;
+} */
+
+.calculator-container {
+  height: 640px;
+  width: 480px;
+  border: 2px solid black;
+  margin-top: 24px;
+  background-color: rgb(24, 24, 24);
+}
+
+.numbers-display {
+  border: 1px solid black;
+  height: 128px;
+  background-color: rgba(81, 81, 81, 0.9);
+}
+
+.buttons-container {
+  display: flex;
+  height: 512px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.calculator-button {
+  width: calc(25% - 5px);
+  height: 18%;
+  border: 1px solid black;
+  border-radius: 64px;
+  outline: none;
+  font-size: 24px;
+}
+
+.calculator-button-0 {
+  width: calc(50% - 10px);
+  height: 18%;
+  border: 1px solid black;
+  border-radius: 64px;
+  outline: none;
+  margin: 1px;
+  font-size: 24px;
+}
+
+.calculator-button:active {
+  background-color: white;
+  font-size: 28px;
 }
