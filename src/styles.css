@@ -58,9 +58,15 @@ span {
 }
 
 .numbers-display {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   border: 1px solid black;
   height: 128px;
   background-color: rgba(81, 81, 81, 0.9);
+  color: white;
+  font-size: 81px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .buttons-container {
