@@ -6,7 +6,24 @@ function Calculator () {
     const buttons = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', 
                     '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
     const updateNum = (symbol) => {
-        setNumber(number + symbol)
+        switch(symbol) {
+            case 'AC':
+                setNumber('0');
+                break;
+            case '+/-':
+                if(number[0] === '-') {
+                    const newNum = number.slice().split('');
+                    newNum.shift();
+                    setNumber(newNum.join(''));
+                    break;
+                }
+                const newNum = number.slice().split('');
+                newNum.unshift('-');
+                setNumber(newNum.join(''));
+                break;
+            default:
+                setNumber(number + symbol);
+        }
     }
     const createButton = (contents) => {
         const orange =  <button className="calculator-button-orange" onClick={() => updateNum(contents)}>{contents}</button>
