@@ -2,4 +2,4 @@
 
 To Do:
 
-- [ ] Handle calculator state properly with numbers and symbols
+- [ ] Implement curried functions to perform mathematical operations
