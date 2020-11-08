@@ -6,7 +6,7 @@ function Calculator () {
     const buttons = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', 
                     '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
     const updateNum = (symbol) => {
-        if(number === '0') setNumber(symbol);
+        if(number === '0' && !Number.isNaN(Number(symbol))) setNumber(symbol);
         else {
             switch(symbol) {
                 case 'AC':
@@ -67,7 +67,7 @@ function Calculator () {
                 <span id="title">Calculator</span>
                 <div className="calculator-container">
                     <div className="numbers-display">
-                        {number}
+                        <span id="number">{number}</span>
                     </div>
                     <div className="buttons-container">
                         {buttons.map(button => {
