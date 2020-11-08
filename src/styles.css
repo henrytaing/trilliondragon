@@ -54,19 +54,20 @@ span {
   width: 480px;
   border: 2px solid black;
   margin-top: 24px;
-  background-color: rgb(24, 24, 24);
+  background-color: rgb(8, 8, 8);
 }
 
 .numbers-display {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  flex-wrap: nowrap;
   border: 1px solid black;
   height: 128px;
-  background-color: rgba(81, 81, 81, 0.9);
   color: white;
   font-size: 81px;
   font-family: Arial, Helvetica, sans-serif;
+  padding-right: 8px;
 }
 
 .buttons-container {
@@ -83,7 +84,31 @@ span {
   border: 1px solid black;
   border-radius: 64px;
   outline: none;
-  font-size: 24px;
+  font-size: 30px;
+  background-color: rgb(81, 81, 81);
+  color: white;
+}
+
+.calculator-button-orange {
+  width: calc(25% - 5px);
+  height: 18%;
+  border: 1px solid black;
+  border-radius: 64px;
+  outline: none;
+  font-size: 30px;
+  background-color: darkorange;
+  color: white;
+}
+
+.calculator-button-lightgray {
+  width: calc(25% - 5px);
+  height: 18%;
+  border: 1px solid black;
+  border-radius: 64px;
+  outline: none;
+  font-size: 30px;
+  background-color: lightgray;
+  color: black;
 }
 
 .calculator-button-0 {
@@ -94,6 +119,8 @@ span {
   outline: none;
   margin: 1px;
   font-size: 24px;
+  background-color: rgb(81, 81, 81);
+  color: white;
 }
 
 .calculator-button:active {
