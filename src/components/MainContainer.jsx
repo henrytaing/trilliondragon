@@ -6,11 +6,12 @@ import React, {useState} from 'react';
 // import App2 from './App2.jsx'
 // import ItemsAndGroups from './ItemsAndGroups'
 // import Calculator from './Calculator'
-import App from '../WebSocketsComponents/App'
+// import App from '../WebSocketsComponents/App'
+import Nokia from '../Nokia';
 import '../styles.css';
 
 function MainContainer () {
-    let app = <App />;
+    let app = <Nokia />;
     return (
         <>
             {/* <Provider store={store}> */}
