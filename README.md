@@ -9,3 +9,6 @@ To Do:
 - [ ] Proper negative/positive switching for percentages
 
 - Chat App
+
+- Nokia App
+- [ ] Improve logic for letter discernment
