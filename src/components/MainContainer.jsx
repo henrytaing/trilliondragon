@@ -5,11 +5,12 @@ import React, {useState} from 'react';
 // import App from './App.jsx'
 // import App2 from './App2.jsx'
 // import ItemsAndGroups from './ItemsAndGroups'
-import Calculator from './Calculator'
+// import Calculator from './Calculator'
+import App from '../WebSocketsComponents/App'
 import '../styles.css';
 
 function MainContainer () {
-    let app = <Calculator />;
+    let app = <App />;
     return (
         <>
             {/* <Provider store={store}> */}
