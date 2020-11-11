@@ -19,27 +19,17 @@ function Nokia () {
     const [timesClicked, setTimesClicked] = useState(0);
     const [lastClicked, setLastClicked] = useState(null);
     const whichLetter = (clickedNum) => {
-        if(clickedNum === currentNumber) {
-            // if faster than 2500
-            if(Date.now() - lastClicked < 2500) {
-                setLastClicked(Date.now());
-                setCurrentLetter(map[clickedNum][timesClicked % 3])
-                setTimesClicked(timesClicked + 1);
-                // if not do this
-            } else {
-                setText(text + currentLetter);
-                // Reset everything
-                setCurrentLetter('');
-                setTimesClicked(0);
-                setCurrentNumber('');
-            }
-        } else {
+        if(clickedNum === currentNumber && Date.now() - lastClicked < 2500) {
             setLastClicked(Date.now());
-            setCurrentLetter(map[clickedNum][timesClicked % 3]);
+            setCurrentLetter(map[clickedNum][timesClicked % 3])
             setTimesClicked(timesClicked + 1);
+        } else {
+            setText(text + currentLetter);
+            setLastClicked(Date.now());
+            setCurrentLetter(map[clickedNum][0]);
+            setTimesClicked(1);
             setCurrentNumber(clickedNum);
         }
-
     }
     const updateText = (num) => {
         switch(num) {
